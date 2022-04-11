@@ -1,0 +1,47 @@
+#include<stdio.h>
+int main()
+{
+  struct student
+  {
+    int rollno;
+    char name[20];
+    float marks_lang1;
+    float marks_maths;
+    float marks_comp;
+    float avg;
+  };
+  int n,i;
+  struct student class[20];
+  printf("enter the number of students in the class");
+  scanf("%d",&n);
+ printf("Enter %d student details...\n",n);
+  for(i=0;i<n;i++)
+    {
+      scanf("%d",&class[i].rollno);
+      scanf("%s",&class[i].name);
+      scanf("%f",&class[i].marks_lang1);
+      scanf("%f",&class[i].marks_maths);
+      scanf("%f",&class[i].marks_comp);
+    }
+  for(i=0;i<n;i++)
+    {
+      class[i].avg=(class[i].marks_lang1+class[i].marks_maths+class[i].marks_comp)/3.0;
+    }
+printf("list of students with greater than avg\n");
+ printf("\n\n roll no\tname\tavg.marks\n\n"); 
+  for(i=0;i<n;i++)
+    {
+      if(class[i].avg>=35)
+        printf("%d\t%s\t %f\n",class[i].rollno,class[i].name,class[i].avg);
+      
+    }
+printf("list of students with lesser than avg\n");
+ printf("\n\n roll no\tname\tavg.marks\n\n"); 
+  for(i=0;i<n;i++)
+    {
+          if(class[i].avg<35)
+        printf("%d\t %s\t %f\n",class[i].rollno,class[i].name,class[i].avg);
+     
+    }
+return 0;
+}
